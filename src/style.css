@@ -25,6 +25,10 @@
 
   --back-standard-color: #E0E3F2;
   --border-color: #fff;
+  --text-color: #525252;
+  --black-color: #000000;
+  --white-color: #fff;
+  --social-media-bg: #ECEFFF;
 }
 
 *{
@@ -39,6 +43,19 @@
   .regular{
     font-family: var( --font-regular);
     }
+  h2{
+    font-size: 1rem;
+    font-family: var(--font-bold);
+  }
+  h3{
+    font-size: 1.2rem;
+    font-family: var(--font-bold);
+  }
+  h1 {
+    font-size: 4em;
+    font-family: var(--font-bold);
+    line-height: 1.1;
+  }
 
 a {
   font-weight: 500;
@@ -57,6 +74,12 @@ body{
   background-color: var(--back-standard-color);
   box-shadow: inset 0 0 0 15px var(--border-color); 
   border-radius: 30px;
+}
+
+.flex-v{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .centerContainer-v{
@@ -80,11 +103,6 @@ ul{
   gap: 8%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -105,7 +123,32 @@ button:focus-visible {
 }
 
 .card {
-  padding: 2em;
+  padding: 0.5em;
+  background: linear-gradient(to bottom right, var(--border-color), transparent);
+  border: solid var(--white-color) 1px;
+  border-radius: 15px;
+  width: fit-content;
+}
+
+ul.social-list{
+  list-style-type: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap:3%;
+}
+.socialMedia{
+  padding: 0.5rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background-color: var(--social-media-bg);
+  transition: all 0.3s ease-in-out;
+}
+
+.socialMedia:hover{
+  margin-top: -5px;
+  background-color: var(--white-color);
 }
 
 /* #app {
