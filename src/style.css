@@ -13,7 +13,7 @@
   --font-regular: 'regular';
   --font-bold: 'bold';
    font-family: var(--font-regular), var(--font-bold), Avenir, Helvetica, Arial, sans-serif; 
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -43,6 +43,12 @@
   .regular{
     font-family: var( --font-regular);
     }
+    .next-model-description{
+      font-family: var( --font-regular);
+      font-size: 0.8em;
+      line-height: 1;
+      color: var(--text-color);
+      }
   h2{
     font-size: 1rem;
     font-family: var(--font-bold);
@@ -53,6 +59,11 @@
   }
   h1 {
     font-size: 4em;
+    font-family: var(--font-bold);
+    line-height: 1.1;
+  }
+  h4 {
+    font-size: 1.8em;
     font-family: var(--font-bold);
     line-height: 1.1;
   }
@@ -147,8 +158,22 @@ ul.social-list{
 }
 
 .socialMedia:hover{
+  cursor: pointer;
   margin-top: -5px;
   background-color: var(--white-color);
+}
+
+.program{
+  padding: 5px 10px;
+  border: solid var(--black-color) 2px;
+  border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+}
+
+.program:hover{
+  cursor: pointer;
+  background-color: var(--black-color);
+  color: var(--white-color);
 }
 
 /* #app {

@@ -19,5 +19,9 @@
     /* border: solid blue 1px; */
 }
 
+li{
+    cursor: pointer;
+}
+
 
 </style>
