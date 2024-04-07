@@ -27,12 +27,16 @@
                 shadows
                 alpha
                 >
-                <TresPerspectiveCamera :position="[0, 0, 0]" />
+                <TresPerspectiveCamera
+                    :position="[0, 0, 4.5]" 
+                    :look-at="[0, 0, 0]"
+                />
                     <OrbitControls />
                     <Suspense>
                     <FBXModel
-                    path="./3dModels/AvelynFinal.fbx"
-                    :scale="0.05"
+                    path="http://localhost:5173/src/components/projectManager/3dModels/AvelynFinal.fbx"
+                    :position="[0, -1.8, 0]"
+                    :scale="0.02"
                     />
                     </Suspense>
                     <TresDirectionalLight
@@ -150,7 +154,8 @@ h3{
 .modelContainer{
     width: 100%;
     height: 70%;
-    border: solid red 1px;
+    /* border: solid red 1px; */
+    cursor: pointer;
 }
 .right{
     width: 32%;
