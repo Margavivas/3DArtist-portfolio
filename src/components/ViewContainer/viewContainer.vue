@@ -23,7 +23,7 @@ position: relative;
 /* border: solid blue 1px; */
 }
 .navBar{
-    width: 50%;
+    /* width: 50%; */
     position: fixed;
     /* border: solid red 1px; */
 }
