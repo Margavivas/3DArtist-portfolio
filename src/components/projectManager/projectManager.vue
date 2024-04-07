@@ -21,7 +21,28 @@
                 </ul>
             </section> 
         </section>
-        <section class="center"></section>
+        <section class="center">
+            <section class="modelContainer">
+                <TresCanvas
+                shadows
+                alpha
+                >
+                <TresPerspectiveCamera :position="[0, 0, 0]" />
+                    <OrbitControls />
+                    <Suspense>
+                    <FBXModel
+                    path="./3dModels/AvelynFinal.fbx"
+                    :scale="0.05"
+                    />
+                    </Suspense>
+                    <TresDirectionalLight
+                    :intensity="2"
+                    :position="[3, 3, 3]"
+                    />
+                    <TresAmbientLight />
+                </TresCanvas>
+            </section>
+        </section>
         <section class="right">
         <video class="borderContainer" 
             @mouseenter="HandleOverVideo" 
@@ -53,8 +74,15 @@
 
 <script setup>
 import {ref} from 'vue';
+import { TresCanvas} from '@tresjs/core';
+import { OrbitControls, FBXModel } from '@tresjs/cientos';
+
+
+//variables
 let isHoverVideo = ref(false);
 
+
+//functions
 function HandleOverVideo () {
         isHoverVideo.value = true; 
 }
@@ -113,7 +141,16 @@ h3{
 .center{
     width: 35%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     /* border: solid 1px blue; */
+}
+.modelContainer{
+    width: 100%;
+    height: 70%;
+    border: solid red 1px;
 }
 .right{
     width: 32%;
