@@ -2,9 +2,19 @@
     <div class="projectManagerContainer">
         <section class="left">
             <section class="infoContainer">
-                <h2>Organic Modeling</h2>
-                <h1>Building</h1>
-                <p class="paragraph">Algun texto descriptivo introductorio del proyecto</p>
+                <h2>{{ currentProject.subtitle }}</h2>
+                <h1>{{ currentProject.projectName }}</h1>
+                <p class="paragraph">{{ currentProject.text }}</p>
+            </section>
+            <section class="modelIU">
+                <div class="imagesContainer card">
+                    <img 
+                    v-for="(image, key) in currentProject.images"
+                    :key="key"
+                    :src="getImageGallery(image)"
+                    :alt="`./img/${currentProject.projectName}/image-test.png`"
+                    >
+                </div>
             </section>
             <section class="prev-model">
                 <h3>Previous Model</h3>
@@ -12,14 +22,6 @@
                     <img src="./img/image-test.png" alt="prev-image">
                 </div>
             </section>
-            <section class="socialMediaContainer">
-                <ul class="social-list">
-                    <li class="socialMedia centerContainer-v centerContainer-h"><img  src="./img/social-media/instagram.svg" alt="instagram"></li>
-                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/artstation.svg" alt="art-station"></li>
-                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/tik-tok.svg" alt="tiktok"></li>
-                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/linkedin.svg" alt="linkedin"></li>
-                </ul>
-            </section> 
         </section>
         <section class="center">
             <section class="modelContainer">
@@ -46,6 +48,14 @@
                     <TresAmbientLight />
                 </TresCanvas>
             </section>
+            <section class="socialMediaContainer">
+                <ul class="social-list">
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img  src="./img/social-media/instagram.svg" alt="instagram"></li>
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/artstation.svg" alt="art-station"></li>
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/tik-tok.svg" alt="tiktok"></li>
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/linkedin.svg" alt="linkedin"></li>
+                </ul>
+            </section> 
         </section>
         <section class="right">
         <video class="borderContainer" 
@@ -58,18 +68,20 @@
         <section class="programs">
             <h3>Programs Used</h3>
             <section class="programsContainer">
-                <p class="program bold">Zbrush</p>
-                <p class="program bold">holi</p>
+                <p class="program bold"
+                v-for="(program, key) in currentProject.programs"
+                :key="key"
+                >{{program}}</p>
             </section>
         </section>
         <section class="next-model">
                 <h3>Next Model</h3>
                 <div class="next-container-img card">
                     <img src="./img/image-test.png" alt="prev-image">
-                    <section>
+                    <!-- <section>
                         <h4>model name</h4>
                         <p class="next-model-description">Personaje creado creado cedjdhj djkqieuwomnd,n d</p>
-                    </section>
+                    </section> -->
                 </div>
             </section>
         </section>
@@ -77,22 +89,50 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 import { TresCanvas} from '@tresjs/core';
 import { OrbitControls, FBXModel } from '@tresjs/cientos';
+
+//import data
+import projectDataInfo from './assets/projects3d.json'
 
 
 //variables
 let isHoverVideo = ref(false);
+let projectData = ref([]);
+let currentProject = ref([]);
+
 
 
 //functions
+function GetProjectsData (){
+    projectData.value = projectDataInfo.proyectos3D;
+    console.log('project data was loaded successfully ', projectData.value);
+}
+
+function GetCurrentProject (project){
+    currentProject.value = projectData.value[project];
+    console.log('saving current project ', currentProject.value);
+}
+
 function HandleOverVideo () {
         isHoverVideo.value = true; 
 }
 function ExitOverVideo () {
     isHoverVideo.value = false; 
 }
+
+function getImageGallery(image){
+const imageURL = new URL(image, import.meta.url).href;
+return imageURL
+}
+
+onMounted(() => {
+    GetProjectsData();
+    GetCurrentProject('AvelynFinal');
+});
+   
+
 </script>
 
 <style scoped>
@@ -110,7 +150,9 @@ function ExitOverVideo () {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: 10%;
+    /* justify-content: space-around; */
+    position: relative;
     /* border: solid 1px blue;    */
 }
 .paragraph{
@@ -118,25 +160,45 @@ function ExitOverVideo () {
     color: var(--text-color);
 } 
 .infoContainer{
-    margin-top: 150px;
+    margin-top: 170px;
     width: 70%;
+    max-width: 70%;
     height: fit-content;
     /* border: solid 1px red; */
+}
+
+.modelIU{
+    width: 70%;
+    height: max-content;
+    display: flex;
+    gap: 10px;
+}
+
+.imagesContainer{
+    max-width: 100%;
+    width: fit-content;
+    height: max-content;
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    overflow-x: scroll;
 }
 
 h3{
     color: var(--white-color);
 }
 .prev-model{
-    margin-top: 20%;
+    /* margin-top: 20%; */
     width: 70%;
     height: 180px;
-    /* border: solid 1px red; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    position: absolute;
+    bottom: 40px;
 }
 .socialMediaContainer{
+    height: max-content;
     width: 70%;
     /* border:solid red 1px; */
 }
@@ -148,14 +210,15 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* border: solid 1px blue; */
 }
 .modelContainer{
     width: 100%;
-    height: 70%;
+    height: 80%;
     /* border: solid red 1px; */
-    cursor: pointer;
+    cursor: grab;
+    /* margin-top: 40px; */
 }
 .right{
     width: 32%;
@@ -163,11 +226,14 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    gap: 10%;
     /* border: solid 1px blue; */
+    position: relative;
+
 }
 video{
-    margin-top: 100px;
+    margin-top: 150px;
     transition: all 0.5s ease-in-out;
 }
 
@@ -175,8 +241,13 @@ video{
     width: 70%;
 }
 
+.next-model{
+    position: absolute;
+    bottom: 40px;
+}
 .next-container-img{
     display: flex;
+    float: right;
     gap: 5%;
 }
 .next-model>h3, .programs>h3{

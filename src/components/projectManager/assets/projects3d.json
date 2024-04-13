@@ -1,0 +1,35 @@
+{
+    "proyectos3D": {
+      "AvelynFinal": {
+        "projectName": "AvelynFinal",
+        "subtitle": "Subtítulo del Proyecto 1",
+        "text": "Descripción del Proyecto 1",
+        "programs": ["Blender", "Substance", "Photoshop"],
+        "bgColor": "#FFFFFF",
+        "model":"http://localhost:5173/src/components/projectManager/3dModels/AvelynFinal.fbx",
+        "video":"./videos/video-1.mp4",
+        "images": 
+            [ "./img/AvelynFinal/AvelynFinal_0.png",
+              "./img/AvelynFinal/AvelynFinal_1.png",
+              "./img/AvelynFinal/AvelynFinal_2.png",
+              "./img/AvelynFinal/AvelynFinal_3.png"
+            ]
+        
+      },
+      "proyecto2": {
+        "projectName": "Proyecto 2",
+        "subtitle": "Subtítulo del Proyecto 2",
+        "text": "Descripción del Proyecto 2",
+        "programs": ["Programa A", "Programa B"],
+        "bgColor": "#EAEAEA",
+        "model":"https://raw.githubusercontent.com/Tresjs/assets/main/models/fbx/low-poly-truck/Jeep_done.fbx",
+        "video":"",
+        "images": {
+          "proyecto2_1": "./img/image-test.png",
+          "proyecto2_2": "./img/image-test.png",
+          "proyecto2_3": "./img/image-test.png",
+          "proyecto2_4": "./img/image-test.png"
+        }
+      }
+    }
+  }
