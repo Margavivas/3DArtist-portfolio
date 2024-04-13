@@ -9,10 +9,12 @@
             <section class="modelIU">
                 <div class="imagesContainer card">
                     <img 
+                    class="image"
                     v-for="(image, key) in currentProject.images"
                     :key="key"
                     :src="getImageGallery(image)"
                     :alt="`./img/${currentProject.projectName}/image-test.png`"
+                    @click="openImage(image)"
                     >
                 </div>
             </section>
@@ -85,6 +87,19 @@
                 </div>
             </section>
         </section>
+        <Transition>
+            <section class="showFullImage" v-if="isImageOpen">
+                <div class="imageContainer">
+                    <div class="close centerContainer-v centerContainer-h bold" 
+                    @click="isImageOpen = false">x</div>
+                    <img 
+                    :src="getImageGallery(imageOpen)" 
+                    :alt="`${currentProject.projectName} image`"
+                    class="imageFullSize borderContainer"
+                    >
+                </div>
+            </section>
+        </Transition>
     </div>
 </template>
 
@@ -101,6 +116,8 @@ import projectDataInfo from './assets/projects3d.json'
 let isHoverVideo = ref(false);
 let projectData = ref([]);
 let currentProject = ref([]);
+let imageOpen = ref('');
+let isImageOpen = ref(false);
 
 
 
@@ -125,6 +142,12 @@ function ExitOverVideo () {
 function getImageGallery(image){
 const imageURL = new URL(image, import.meta.url).href;
 return imageURL
+}
+
+function openImage(image){
+    isImageOpen.value = true;
+    console.log('open image ', image);
+    imageOpen.value = image;
 }
 
 onMounted(() => {
@@ -265,6 +288,47 @@ video{
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+
+.image{
+    cursor: pointer;
+    border-radius: 10px;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.imageContainer{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+.imageFullSize{
+    width: fit-content;
+    height: fit-content;
+    max-width: 800px;
+}
+
+.close{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: var(--white-color); 
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.close:hover{
+    background-color: var(--black-color); 
+    color: var(--white-color);
+}
+.v-enter-active,.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,.v-leave-to {
+  opacity: 0;
 }
 
 

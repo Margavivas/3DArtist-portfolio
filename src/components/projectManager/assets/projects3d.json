@@ -9,9 +9,10 @@
         "model":"http://localhost:5173/src/components/projectManager/3dModels/AvelynFinal.fbx",
         "video":"./videos/video-1.mp4",
         "images": 
-            [ "./img/AvelynFinal/AvelynFinal_0.png",
-              "./img/AvelynFinal/AvelynFinal_1.png",
-              "./img/AvelynFinal/AvelynFinal_2.png",
+            [ 
+              "https://cdna.artstation.com/p/assets/images/images/061/357/650/large/jhorman-perez-finalimagemesh.jpg?1680609327",
+              "https://cdnb.artstation.com/p/assets/images/images/061/340/831/large/jhorman-perez-finalimage4k-2.jpg?1680564424",
+              "./img/AvelynFinal/AvelynFinal_0.png",
               "./img/AvelynFinal/AvelynFinal_3.png"
             ]
         

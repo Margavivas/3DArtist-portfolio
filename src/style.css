@@ -85,6 +85,7 @@ body{
   background-color: var(--back-standard-color);
   box-shadow: inset 0 0 0 15px var(--border-color); 
   border-radius: 30px;
+  position: relative;
 }
 
 .flex-v{
@@ -113,8 +114,19 @@ ul{
   display: flex;
   gap: 8%;
 }
+.showFullImage{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #363636d2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-button {
+}
+
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -131,7 +143,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 .card {
   padding: 0.5em;
@@ -183,7 +195,7 @@ ul.social-list{
   text-align: center;
 } */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -194,4 +206,4 @@ ul.social-list{
   button {
     background-color: #f9f9f9;
   }
-}
+} */
