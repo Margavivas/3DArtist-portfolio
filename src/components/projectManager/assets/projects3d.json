@@ -15,7 +15,6 @@
               "./img/AvelynFinal/AvelynFinal_0.png",
               "./img/AvelynFinal/AvelynFinal_3.png"
             ]
-        
       },
       "proyecto2": {
         "projectName": "Proyecto 2",
@@ -24,13 +23,14 @@
         "programs": ["Programa A", "Programa B"],
         "bgColor": "#EAEAEA",
         "model":"https://raw.githubusercontent.com/Tresjs/assets/main/models/fbx/low-poly-truck/Jeep_done.fbx",
-        "video":"",
-        "images": {
-          "proyecto2_1": "./img/image-test.png",
-          "proyecto2_2": "./img/image-test.png",
-          "proyecto2_3": "./img/image-test.png",
-          "proyecto2_4": "./img/image-test.png"
-        }
+        "video":"https://cdn.artstation.com/p/video_sources/001/276/701/portalgunshowoff.mp4",
+        "images": 
+        [
+          "./img/image-test.png",
+          "./img/image-test.png",
+          "./img/image-test.png",
+          "./img/image-test.png"
+        ]
       }
     }
   }

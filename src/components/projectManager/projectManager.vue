@@ -12,7 +12,7 @@
                     class="image"
                     v-for="(image, key) in currentProject.images"
                     :key="key"
-                    :src="getImageGallery(image)"
+                    :src="getURL(image)"
                     :alt="`./img/${currentProject.projectName}/image-test.png`"
                     @click="openImage(image)"
                     >
@@ -64,7 +64,7 @@
             @mouseenter="HandleOverVideo" 
             @mouseleave="ExitOverVideo" 
             @touchstart="HandleOverVideo"
-            src="./videos/video-1.mp4" 
+            :src="getURL(currentProject.video)" 
             :controls="isHoverVideo">
         </video>
         <section class="programs">
@@ -104,13 +104,12 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
+import {ref, onMounted, watch} from 'vue';
 import { TresCanvas} from '@tresjs/core';
 import { OrbitControls, FBXModel } from '@tresjs/cientos';
 
 //import data
 import projectDataInfo from './assets/projects3d.json'
-
 
 //variables
 let isHoverVideo = ref(false);
@@ -139,21 +138,28 @@ function ExitOverVideo () {
     isHoverVideo.value = false; 
 }
 
-function getImageGallery(image){
-const imageURL = new URL(image, import.meta.url).href;
-return imageURL
+function getURL(element){
+return new URL(element, import.meta.url).href
 }
 
 function openImage(image){
     isImageOpen.value = true;
-    console.log('open image ', image);
+    // console.log('open image ', image);
     imageOpen.value = image;
 }
 
+
+// watch(modelPath, (newPath, oldPath) => {
+//     console.log('La ruta del modelo 3D ha cambiado:', newPath , '   ', oldPath);
+// });
+
+
+
 onMounted(() => {
     GetProjectsData();
-    GetCurrentProject('AvelynFinal');
+    GetCurrentProject('AvelynFinal'); 
 });
+
    
 
 </script>
