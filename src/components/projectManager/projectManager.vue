@@ -27,29 +27,11 @@
         </section>
         <section class="center">
             <section class="modelContainer">
-                <!-- <TresCanvas
-                shadows
-                alpha
-                >
-                <TresPerspectiveCamera
-                    :position="[0, 0, 4.5]" 
-                    :look-at="[0, 0, 0]"
-                />
-                    <OrbitControls />
-                    <Suspense>
-                    <FBXModel
-                    path="http://localhost:5173/src/components/projectManager/3dModels/AvelynFinal.fbx"
-                    :position="[0, -1.8, 0]"
-                    :scale="0.02"
-                    />
-                    </Suspense>
-                    <TresDirectionalLight
-                    :intensity="2"
-                    :position="[3, 3, 3]"
-                    />
-                    <TresAmbientLight />
-                </TresCanvas> -->
-                <slider></slider>
+                <slider
+                @currentModel = "HandleCurrentModel"
+                @nextModel = "HandleNextModel"
+                @previousModel = "HandlePrevioustModel"
+                ></slider>
             </section>
             <section class="socialMediaContainer">
                 <ul class="social-list">
@@ -106,8 +88,6 @@
 
 <script setup>
 import {ref, onMounted, watch} from 'vue';
-import { TresCanvas} from '@tresjs/core';
-import { OrbitControls, FBXModel } from '@tresjs/cientos';
 import slider from './components/slider/slider.vue';
 
 //import data
@@ -150,6 +130,18 @@ function openImage(image){
     imageOpen.value = image;
 }
 
+function HandleCurrentModel(message){
+    console.log('child message :', message);
+    GetCurrentProject(message); 
+}
+
+function HandleNextModel(message){
+    console.log('child next message :', message);
+}
+
+function HandlePrevioustModel(message){
+    console.log('child previous message :', message);
+}
 
 // watch(modelPath, (newPath, oldPath) => {
 //     console.log('La ruta del modelo 3D ha cambiado:', newPath , '   ', oldPath);

@@ -20,6 +20,9 @@ height: 100%;
 margin: 0px;
 padding: 0px;
 position: relative;
+box-shadow: inset 0 0 0 15px var(--border-color); 
+border-radius: 30px;
+background-color: var(--back-standard-color);
 /* border: solid blue 1px; */
 }
 .navBar{

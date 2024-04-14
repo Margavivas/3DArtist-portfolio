@@ -5,7 +5,7 @@
         "subtitle": "Subtítulo del Proyecto 1",
         "text": "Descripción del Proyecto 1",
         "programs": ["Blender", "Substance", "Photoshop"],
-        "bgColor": "#FFFFFF",
+        "bgColor": "red",
         "model":"http://localhost:5173/src/components/projectManager/3dModels/AvelynFinal.fbx",
         "video":"./videos/video-1.mp4",
         "images": 
@@ -23,6 +23,22 @@
         "programs": ["Programa A", "Programa B"],
         "bgColor": "#EAEAEA",
         "model":"https://raw.githubusercontent.com/Tresjs/assets/main/models/fbx/low-poly-truck/Jeep_done.fbx",
+        "video":"https://cdn.artstation.com/p/video_sources/001/276/701/portalgunshowoff.mp4",
+        "images": 
+        [
+          "./img/image-test.png",
+          "./img/image-test.png",
+          "./img/image-test.png",
+          "./img/image-test.png"
+        ]
+      },
+      "proyecto3": {
+        "projectName": "Proyecto 3",
+        "subtitle": "Subtítulo del Proyecto 3",
+        "text": "Descripción del Proyecto 3",
+        "programs": ["yes", "yeah"],
+        "bgColor": "blue",
+        "model":"http://localhost:5173/src/components/projectManager/3dModels/Ball.fbx",
         "video":"https://cdn.artstation.com/p/video_sources/001/276/701/portalgunshowoff.mp4",
         "images": 
         [
