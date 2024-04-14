@@ -27,7 +27,7 @@
         </section>
         <section class="center">
             <section class="modelContainer">
-                <TresCanvas
+                <!-- <TresCanvas
                 shadows
                 alpha
                 >
@@ -48,7 +48,8 @@
                     :position="[3, 3, 3]"
                     />
                     <TresAmbientLight />
-                </TresCanvas>
+                </TresCanvas> -->
+                <slider></slider>
             </section>
             <section class="socialMediaContainer">
                 <ul class="social-list">
@@ -93,7 +94,7 @@
                     <div class="close centerContainer-v centerContainer-h bold" 
                     @click="isImageOpen = false">x</div>
                     <img 
-                    :src="getImageGallery(imageOpen)" 
+                    :src="getURL(imageOpen)" 
                     :alt="`${currentProject.projectName} image`"
                     class="imageFullSize borderContainer"
                     >
@@ -107,6 +108,7 @@
 import {ref, onMounted, watch} from 'vue';
 import { TresCanvas} from '@tresjs/core';
 import { OrbitControls, FBXModel } from '@tresjs/cientos';
+import slider from './components/slider/slider.vue';
 
 //import data
 import projectDataInfo from './assets/projects3d.json'
