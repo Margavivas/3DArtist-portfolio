@@ -87,7 +87,7 @@
 </template>
 
 <script setup>
-import {ref, onMounted, watch} from 'vue';
+import {ref, onMounted, getCurrentInstance} from 'vue';
 import slider from './components/slider/slider.vue';
 
 //import data
@@ -99,6 +99,7 @@ let projectData = ref([]);
 let currentProject = ref([]);
 let imageOpen = ref('');
 let isImageOpen = ref(false);
+let { emit } = getCurrentInstance();
 
 
 
@@ -111,6 +112,8 @@ function GetProjectsData (){
 function GetCurrentProject (project){
     currentProject.value = projectData.value[project];
     console.log('saving current project ', currentProject.value);
+    emit('currentColor', currentProject.value.bgColor);
+    console.log('current color - ', currentProject.value.bgColor);
 }
 
 function HandleOverVideo () {
