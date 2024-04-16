@@ -52,11 +52,14 @@
         </video>
         <section class="programs">
             <h3>Programs Used</h3>
+            
             <section class="programsContainer">
+             <transition-group name="programs" tag="p" class="programsContainer">
                 <p class="program bold"
                 v-for="(program, key) in currentProject.programs"
                 :key="key"
                 >{{program}}</p>
+            </transition-group>
             </section>
         </section>
         <section class="next-model">
@@ -70,7 +73,7 @@
                 </div>
             </section>
         </section>
-        <Transition>
+        <Transition name="fade">
             <section class="showFullImage" v-if="isImageOpen">
                 <div class="imageContainer">
                     <div class="close centerContainer-v centerContainer-h bold" 
@@ -299,7 +302,11 @@ video{
     max-width: 150px;
     max-height: 150px;
 }
-
+.showFullImage{
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
 .imageContainer{
     width: fit-content;
     height: fit-content;
@@ -326,13 +333,25 @@ video{
     background-color: var(--black-color); 
     color: var(--white-color);
 }
-.v-enter-active,.v-leave-active {
+
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s ease;
 }
 
-.v-enter-from,.v-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
+.programs-enter-active,
+.programs-leave-active {
+  transition: opacity 1s ease-in-out;
+}
+
+.programs-enter-from,
+.programs-leave-to {
+  opacity: 0;
+}
 
 </style>

@@ -20,7 +20,7 @@
         "projectName": "Proyecto 2",
         "subtitle": "Subtítulo del Proyecto 2",
         "text": "Descripción del Proyecto 2",
-        "programs": ["Programa A", "Programa B"],
+        "programs": ["Blender", "Substance"],
         "bgColor": "#EAEAEA",
         "model":"https://raw.githubusercontent.com/Tresjs/assets/main/models/fbx/low-poly-truck/Jeep_done.fbx",
         "video":"https://cdn.artstation.com/p/video_sources/001/276/701/portalgunshowoff.mp4",

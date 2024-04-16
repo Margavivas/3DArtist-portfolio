@@ -1,7 +1,8 @@
 <template>
   <div class="slidercontainer">
     <section class="model">
-      <TresCanvas shadows alpha v-if="currentModel === 'AvelynFinal'">
+    <Transition>
+      <TresCanvas v-show="currentModel === 'AvelynFinal'" shadows alpha>
         <TresPerspectiveCamera :position="[0, 0, 4.5]" :look-at="[0, 0, 0]" />
         <OrbitControls />
         <Suspense>
@@ -14,8 +15,10 @@
         <TresDirectionalLight :intensity="2" :position="[3, 3, 3]" />
         <TresAmbientLight />
       </TresCanvas>
+    </Transition>
 
-      <TresCanvas shadows alpha v-if="currentModel === 'proyecto2'">
+    <Transition>
+      <TresCanvas v-show="currentModel === 'proyecto2'" shadows alpha >
         <TresPerspectiveCamera :position="[11, 11, 11]" />
         <OrbitControls />
         <Suspense>
@@ -27,8 +30,10 @@
         <TresDirectionalLight :intensity="2" :position="[3, 3, 3]" />
         <TresAmbientLight />
       </TresCanvas>
+    </Transition>
 
-      <TresCanvas shadows alpha v-if="currentModel === 'proyecto3'">
+    <Transition>
+      <TresCanvas v-show="currentModel === 'proyecto3'" shadows alpha >
         <TresPerspectiveCamera :position="[11, 11, 11]" />
         <OrbitControls />
         <Suspense>
@@ -40,6 +45,8 @@
         <TresDirectionalLight :intensity="2" :position="[3, 3, 3]" />
         <TresAmbientLight />
       </TresCanvas>
+    </Transition>
+
     </section>
     <section class="sliderArrows">
         <div class="left centerContainer-h centerContainer-v" @click="HandleLeftButton">
@@ -91,35 +98,19 @@ function HandleLeftButton(){
 
 
 watch(currentIndex, (newIndex, oldIndex) => {
-    console.log('index change:', 'new value - ', newIndex , '  old - ', oldIndex);
-    currentModel.value = models[newIndex];
-     console.log('model change:', currentModel.value);
+  currentModel.value = models[newIndex];
+  emit('currentModel', currentModel.value);
+  emit('previousModel', models[oldIndex]);
 
-     if(oldIndex){ // send previous model
-        currentModel.value = undefined;
-        console.log('test - ', currentModel.value);
-        setTimeout(() => {
-            currentModel.value = models[newIndex];
-            console.log('test - 2 -', currentModel.value);
-            emit('currentModel', currentModel.value);
-        }, 1);
-     }else{
-        emit('currentModel', currentModel.value);
-     }
-     emit('previousModel', models[oldIndex]);
-
-     if(newIndex < (models.length - 1)){ // send next model
-      emit('nextModel',  models[newIndex + 1]);
-     }else{
-      emit('nextModel',  models[0]);
-     }
-    
+  if (newIndex < models.length - 1) {
+    emit('nextModel', models[newIndex + 1]);
+  } else {
+    emit('nextModel', models[0]);
+  }
 });
 
 onMounted(() => {
   currentModel.value = models[currentIndex.value];
-  console.log("current Model in click left view - ", currentModel.value);
-  console.log(models.length);
 });
 </script>
 
@@ -158,5 +149,13 @@ onMounted(() => {
 .right:hover, .left:hover{
     background-color: var(--black-color);
     color:var(--white-color);
+}
+
+.v-enter-active,.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,.v-leave-to {
+  opacity: 0%;
 }
 </style>
