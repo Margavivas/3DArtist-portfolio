@@ -26,39 +26,5 @@ function HandleBackgroundColor(message){
 </script>
 
 <style scoped>
-#viewContainer {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    box-shadow: inset 0 0 0 15px var(--border-color); 
-    border-radius: 30px;
-    background-color: var(--back-standard-color);
-    transition: all 0.8s ease-in-out; 
-}
-
-.navBar {
-    position: fixed;
-}
-
-.bar-v {
-    position: fixed;
-    left: -1px;
-    top: 65vh;
-}
-
-.bar-right {
-    left: 100vw;
-    margin-left: 1px;
-    top: 4%;
-    transform: scaleX(-1);
-    transform-origin: left;
-}
-
-.bar-h {
-    position: fixed;
-    bottom: 0px;
-    left: 22vw;
-}
+@import './style/viewContainer.css'
 </style>

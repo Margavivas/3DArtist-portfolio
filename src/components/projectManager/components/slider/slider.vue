@@ -115,47 +115,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.slidercontainer{
-  width: 100%;
-  height: 100%;
-  /* border: solid red 1px; */
-  position: relative;
-  z-index: 1;
-}
-.model{
-  width: 100%;
-  height: 100%;
-}
-.sliderArrows{
-    width: 120%;
-    /* border: solid red 1px; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    left: -10%;
-    top: 80%;
-    z-index: 2;
-}
-
-.right, .left{
-    min-width: 50px;
-    min-height: 50px;
-    border-radius: 100%;
-    background-color: var(--white-color);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-.right:hover, .left:hover{
-    background-color: var(--black-color);
-    color:var(--white-color);
-}
-
-.v-enter-active,.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,.v-leave-to {
-  opacity: 0%;
-}
+@import "./style/slider.css";
 </style>

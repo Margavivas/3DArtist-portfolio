@@ -10,18 +10,5 @@
 
 <style scoped>
 @import '../../style.css';
-.navBarContainer{
-    width: 480px;
-    height: 60px;
-    background-image: url(./img/navBar-bg.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    /* border: solid blue 1px; */
-}
-
-li{
-    cursor: pointer;
-}
-
-
+@import './style/Navbar.css';
 </style>
