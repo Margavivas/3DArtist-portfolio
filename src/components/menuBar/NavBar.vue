@@ -11,4 +11,5 @@
 <style scoped>
 @import '../../style.css';
 @import './style/Navbar.css';
+@import './style/responsive-navBar.css';
 </style>

@@ -1,0 +1,14 @@
+/*phones*/
+@media (max-width: 900px) {
+    .navBar {
+        max-width: 92%;
+        height: 60px;
+    }
+}
+
+@media (max-width: 412px) {
+    .navBar {
+        min-width: 110%;
+        height: 60px;
+    }
+}

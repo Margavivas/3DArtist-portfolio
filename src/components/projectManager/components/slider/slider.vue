@@ -116,4 +116,5 @@ onMounted(() => {
 
 <style scoped>
 @import "./style/slider.css";
+@import "./style/responsive-slider.css";
 </style>

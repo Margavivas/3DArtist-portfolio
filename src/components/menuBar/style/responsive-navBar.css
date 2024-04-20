@@ -1,0 +1,7 @@
+/*phones*/
+@media (max-width: 600px) {
+.navBarContainer{
+    background-size: 100% 100%;
+    background-position-x: center;
+}
+}

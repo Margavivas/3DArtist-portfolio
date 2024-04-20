@@ -1,5 +1,6 @@
 <template>
     <div class="centerContainer-v" id="viewContainer" :style="{ backgroundColor }">
+        <div class="border"></div>
         <NavBar class="navBar"></NavBar>
         <img src="./img/bar-v.svg" alt="bar-vertical-left" class="bar-v">
         <img src="./img/bar-v.svg" alt="bar-vertical-right" class="bar-v bar-right">
@@ -26,5 +27,6 @@ function HandleBackgroundColor(message){
 </script>
 
 <style scoped>
-@import './style/viewContainer.css'
+@import './style/viewContainer.css';
+@import './style/responsive-viewContainer.css';
 </style>

@@ -72,6 +72,17 @@
                     </section> -->
                 </div>
             </section>
+            <section class="socialMediaContainer-phone">
+                <ul class="social-list">
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img  src="./img/social-media/instagram.svg" alt="instagram"></li>
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/artstation.svg" alt="art-station"></li>
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/tik-tok.svg" alt="tiktok"></li>
+                    <li class="socialMedia centerContainer-v centerContainer-h"><img src="./img/social-media/linkedin.svg" alt="linkedin"></li>
+                </ul>
+            </section> 
+        </section>
+        <section class="rotation-element">
+            <img src="./rotate-animations/rotate-animation.gif" alt="rotate animation icon">
         </section>
         <Transition name="fade">
             <section class="showFullImage" v-if="isImageOpen">
@@ -149,11 +160,6 @@ function HandlePrevioustModel(message){
     console.log('child previous message :', message);
 }
 
-// watch(modelPath, (newPath, oldPath) => {
-//     console.log('La ruta del modelo 3D ha cambiado:', newPath , '   ', oldPath);
-// });
-
-
 
 onMounted(() => {
     GetProjectsData();
@@ -166,4 +172,5 @@ onMounted(() => {
 
 <style scoped>
 @import './style/projectManager.css';
+@import './style/responsive-projectManager.css';
 </style>

@@ -1,0 +1,9 @@
+/*phones*/
+@media screen and (max-width: 900px) {
+    .sliderArrows{
+        width: 110%;
+        left: -5%;
+        top: 98%;
+  
+    }
+    }
